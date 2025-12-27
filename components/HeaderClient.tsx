@@ -1,15 +1,8 @@
-import type { Metadata } from "next";
-import "./globals.css";
+"use client";
+
 import Link from "next/link";
-import RouteTransition from "@/components/RouteTransition";
-import HeaderClient from "@/components/HeaderClient";
 
-export const metadata: Metadata = {
-  title: "Shahbaaz Nilgiriwala",
-  description: "Portfolio",
-};
-
-function Header() {
+export default function HeaderClient() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[50]">
       <div className="mx-auto max-w-[1200px] px-4">
@@ -31,6 +24,7 @@ function Header() {
               >
                 Projects
               </Link>
+
               <Link
                 href="/#contact"
                 className="text-xs tracking-[0.25em] uppercase text-white/65 hover:text-white transition"
@@ -44,8 +38,8 @@ function Header() {
                 aria-label="Menu"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:text-white hover:border-white/20 transition"
                 onClick={() => {
-                  // optional: you can later open a small menu here
-                  // for now it does nothing (just visual like the reference)
+                  // later we can open an overlay menu here
+                  console.log("menu");
                 }}
               >
                 <span className="text-lg leading-none">⋯</span>
@@ -55,19 +49,5 @@ function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>
-        <RouteTransition>
-          <HeaderClient />
-          {children}
-        </RouteTransition>
-      </body>
-    </html>
   );
 }
