@@ -161,7 +161,7 @@ export default function HomeClient() {
       <section id="contact" className="relative">
         <HeroBG
           src="/images/hero-bottom.jpg"
-          mobileFocus="60% 50%"
+          mobileFocus="30% 50%"
           desktopFocus="50% 50%"
           overlayOpacity={0.5}
         />
