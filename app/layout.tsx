@@ -1,63 +1,51 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
 import RouteTransition from "@/components/RouteTransition";
 import HeaderClient from "@/components/HeaderClient";
 
 export const metadata: Metadata = {
-  title: "Shahbaaz Nilgiriwala",
-  description: "Portfolio",
+  metadataBase: new URL("https://www.shabz77.com/"), 
+  title: {
+    default: "Shahbaaz Nilgiriwala",
+    template: "%s — Shahbaaz Nilgiriwala",
+  },
+  description:
+    "Automotive designer focused on 3D design, livery systems, and interactive experiences.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "Shahbaaz Nilgiriwala",
+    description:
+      "Automotive designer focused on 3D design, livery systems, and interactive experiences.",
+    images: [
+      {
+        url: "/og.jpg", // optional but recommended (put in /public/og.jpg)
+        width: 1200,
+        height: 630,
+        alt: "Shahbaaz Nilgiriwala — Automotive Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shahbaaz Nilgiriwala",
+    description:
+      "Automotive designer focused on 3D design, livery systems, and interactive experiences.",
+    images: ["/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
-
-function Header() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-[50]">
-      <div className="mx-auto max-w-[1200px] px-4">
-        <div className="mt-4 rounded-full border border-white/10 bg-black/40 backdrop-blur-md">
-          <div className="flex items-center justify-between px-5 py-3">
-            {/* Left */}
-            <Link
-              href="/"
-              className="text-xs tracking-[0.25em] uppercase text-white/75 hover:text-white transition"
-            >
-              Home
-            </Link>
-
-            {/* Right */}
-            <nav className="flex items-center gap-6">
-              <Link
-                href="/projects"
-                className="text-xs tracking-[0.25em] uppercase text-white/65 hover:text-white transition"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-xs tracking-[0.25em] uppercase text-white/65 hover:text-white transition"
-              >
-                Contact
-              </Link>
-
-              {/* 3-dot button */}
-              <button
-                type="button"
-                aria-label="Menu"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 hover:text-white hover:border-white/20 transition"
-                onClick={() => {
-                  // optional: you can later open a small menu here
-                  // for now it does nothing (just visual like the reference)
-                }}
-              >
-                <span className="text-lg leading-none">⋯</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-}
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
