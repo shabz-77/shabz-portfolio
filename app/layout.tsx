@@ -3,8 +3,11 @@ import "./globals.css";
 import RouteTransition from "@/components/RouteTransition";
 import HeaderClient from "@/components/HeaderClient";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.shabz77.com/"), 
+  metadataBase: new URL("https://www.shabz77.com/"),
   title: {
     default: "Shahbaaz Nilgiriwala",
     template: "%s — Shahbaaz Nilgiriwala",
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
       "Automotive designer focused on 3D design, livery systems, and interactive experiences.",
     images: [
       {
-        url: "/og.jpg", // optional but recommended (put in /public/og.jpg)
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Shahbaaz Nilgiriwala — Automotive Portfolio",
@@ -55,6 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <HeaderClient />
           {children}
         </RouteTransition>
+
+        {/* Vercel analytics */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
