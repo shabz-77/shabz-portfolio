@@ -134,7 +134,7 @@ export default function CategoryClient({ categoryParam }: { categoryParam: strin
                 This project is under development
               </div>
               <div className="mt-3 text-sm text-white/80 leading-relaxed">
-                It will be released late January.
+                It will be released late April.
               </div>
 
               <button
